@@ -15,7 +15,7 @@ class PhotosController < ApplicationController
   end
 
   def create 
-    Photo.create(photo_params)
+    @photo = Photo.new(photo_params)
 
     # @photo.saveがバリデーションに許された（成功した）時
     if @photo.save
@@ -39,11 +39,12 @@ class PhotosController < ApplicationController
   end
 
   def show
+    set_photo
   end
 
   def update
-    if @photo.update(blog_params)
-      redirect_to photo_path, notice: "Photoを編集しました！"
+    if @photo.update(photo_params)
+      redirect_to photos_path, notice: "Photoを編集しました！"
     else
       render 'edit'
     end
@@ -52,7 +53,7 @@ class PhotosController < ApplicationController
 
   def destroy
     @photo.destroy
-    redirect_to photo_path, notice:"Photoを削除しました！"
+    redirect_to photos_path, notice:"Photoを削除しました！"
   end
 
   private

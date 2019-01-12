@@ -10,7 +10,7 @@
         <div class="col-md-6">
           <div class="post">
             <div class="photo_image">
-              <p><%= image_tag @photo.image.url %></p>
+              <p><%= image_tag photo.image.url %></p>
             </div>
             <div class = "photo_caption">
               <%= photo.caption %>
@@ -20,8 +20,6 @@
               <%= photo.created_at.strftime("%Y-%m-%d %H:%M ") %>
             </div>
             <div><%= link_to "詳細", photo_path(photo.id) %></div>
-            <div><%= link_to "削除", photo_path(photo.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></div>
-            <div><%= link_to "編集", edit_photo_path(photo.id), data: { confirm: '本当に編集していいですか？' } %></div>
           </div>
         </div>
       <% end %>

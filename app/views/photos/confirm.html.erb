@@ -1,7 +1,7 @@
-<h4>以下の内容で投稿しますか？</h4>
+<h4>この内容で投稿しますか？</h4>
 
 <%= form_with(model: @photo, url: photos_path, local: true) do |form| %>
-  <%= form.hidden_field :image_cash %>
+  <%= form.hidden_field :image_cache  %>
   <%= form.hidden_field :caption %>
 
   <!-- 確認画面でアップロードした画像を表示させるための記述 -->
@@ -11,7 +11,7 @@
 <% end %>
 
 <%= form_with(model: @photo, url: new_photo_path, local: true, method: 'get') do |form| %>
-  <%= form.hidden_field :image_cash %>
+  <%= form.hidden_field :image_cache  %>
   <%= form.hidden_field :caption %>
   <%= form.submit "Back", name: 'back'%>
 <% end %>

@@ -3,4 +3,14 @@
 <div>
   <p><%= image_tag @photo.image.url %></p>
   <p>caption: <%= @photo.caption %></p>
+  <p><%= @photo.created_at.strftime("%Y-%m-%d %H:%M ") %></p>
 <div>
+
+<div>
+  <%= link_to "削除", photo_path(@photo.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+</div>
+<div>
+<%= link_to "編集", edit_photo_path(@photo.id), data: { confirm: '本当に編集していいですか？' } %>
+</div>
+
+<%= link_to "Back", photo_path(@photo.id) %>
