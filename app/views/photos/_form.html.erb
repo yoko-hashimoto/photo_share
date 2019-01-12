@@ -1,0 +1,32 @@
+<%= form_with(model: @photo, local: true, url: choose_new_or_edit) do |form| %>
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h5><%= @photo.errors.count %>件のエラーがあります。</h5>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <p><%= form.label :image %></p>
+    <!-- 確認画面から新規作成画面に戻った時に、 -->
+    <!-- アップロードした画像を表示させるための記述 -->
+    <p><%= image_tag(@photo.image.url) if @photo.image.url %></p>
+    <p><%= form.file_field :image %></p>
+  </div>
+  <div>
+    <%= form.label :caption %>
+    <br>
+    <%= form.text_area :caption %>
+  </div>
+  <div>
+    <%= form.submit "Confirm" %>
+  </div>
+
+<% end %>
+
+<%= link_to "Back", photos_path %>
