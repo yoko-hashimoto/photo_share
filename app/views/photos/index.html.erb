@@ -15,7 +15,8 @@
             <div class = "photo_caption">
               <%= photo.caption %>
             </div>
-            
+            <div class="user_name">
+              <%= photo.user.name %>
             <div class="date">
               <%= photo.created_at.strftime("%Y-%m-%d %H:%M ") %>
             </div>

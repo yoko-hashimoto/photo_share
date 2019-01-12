@@ -14,8 +14,9 @@ class PhotosController < ApplicationController
     end
   end
 
-  def create 
-    @photo = Photo.new(photo_params)
+  def create
+    # ログイン中のユーザーのphotoを、build(new)する
+    @photo = current_user.photos.build(photo_params)
 
     # @photo.saveがバリデーションに許された（成功した）時
     if @photo.save
@@ -29,7 +30,9 @@ class PhotosController < ApplicationController
   end
 
   def confirm
-    @photo = Photo.new(photo_params)
+    # ログイン中のユーザーのphotoを、build(new)する
+    @photo = current_user.photos.build(photo_params)
+
     # 確認画面(confirm)を挟む時は手動でバリデーションの設定が必要
     # バリデーションに失敗した時は入力フォームを再描画する。
     render :new if @photo.invalid?
