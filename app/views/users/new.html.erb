@@ -1,15 +1,51 @@
-<%= form_with(model: @user, local: true) do |form| %>
-  <div class="user_name">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div class="user_email">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-  <div class="user_password">
-    <%= form.label :password %>
-    <%= form.text_field :email %>
-  </div>
-  <%= form.submit %>
-<% end %>
+<div class="sign_up">
+
+  <h1>Sign up</h1>
+  
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+    
+      <h4><%= (@user.errors.count) %>件のエラーがあります。</h4>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= form_with(model: @user, local: true) do |f| %>
+    <div>
+      <%= f.label :name %>
+      <br>
+      <%= f.text_field :name %>
+    </div>
+
+    <div>
+      <%= f.label :email %>
+      <br>
+      <%= f.email_field :email %>
+    <div>
+
+    <div>
+      <%= f.label :password %>
+      <br>
+      <%= f.password_field :password %>
+    </div>
+
+    <div>
+      <%= f.label :password_confirmation %>
+      <br>
+      <%= f.password_field :password_confirmation %>
+    </div>
+
+    <div>
+      <%= f.label :icon %>
+      <br>
+      <%= f.file_field :icon, class:"image_file" %>
+    </div>
+
+    <%= f.submit "Create my account", class: "btn btn-default" %>
+  <% end %>
+
+</div>
