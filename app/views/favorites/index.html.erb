@@ -1,0 +1,36 @@
+<h1>Favorite List</h1>
+
+<div class="content">
+
+    <div class="row">
+   
+      <% @favorite_photos.each do |favorite_photo| %>
+        <div class="col-md-6">
+          <div class="post">
+            <div class="photo_image">
+              <p><%= image_tag favorite_photo.image.url %></p>
+            </div>
+            <div class = "photo_caption">
+              <%= favorite_photo.caption %>
+            </div>
+            <div class="user_name">
+              <%= favorite_photo.user.name %>
+            <div class="date">
+              <%= favorite_photo.created_at.strftime("%Y-%m-%d %H:%M ") %>
+            </div>
+            <div><%#= link_to "詳細", photo_path(photo.id) %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <br>
+
+  <%# <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default"><%= link_to "<Profile>", user_path(current_user.id) %><!--</button>
+  </div> %> -->
+
+</div>
+
+<div><%= link_to "<Profile>", user_path(current_user.id) %></div>

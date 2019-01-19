@@ -3,3 +3,11 @@
 <p><%= image_tag @user.icon.url %>
 
 <p>メールアドレス: <%= @user.email %></p>
+
+<div>
+  <p><%= link_to "<My Favorite>", favorites_path %> </P>
+  
+  <% if @user.id == current_user.id %>
+    <p><%= link_to "<Edit Profile>", edit_user_path(current_user.id) %></p>
+  <% end %>
+</div>

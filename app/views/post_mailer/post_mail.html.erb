@@ -1,0 +1,9 @@
+<h2>Photoの投稿が完了しました！</h2>
+
+<h4>name: <%= @photo.user.name%></h4>
+
+<h4>投稿内容の確認</h4>
+
+<p><%= image_tag @photo.image.url %></p>
+<p><%= @photo. caption%></p>
+<p><%= @photo.created_at.strftime("%Y-%m-%d %H:%M ") %></p>
