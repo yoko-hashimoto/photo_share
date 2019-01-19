@@ -23,15 +23,17 @@ class PhotosController < ApplicationController
 
     # @photo.saveがバリデーションに許された（成功した）時
     if @photo.save
+      # post_mailメソッドを呼び出す時に、引数として@photo(photoの情報)を渡す
+      PostMailer.post_mail(@photo).deliver
 
-      # 一覧画面へ遷移して"写真を投稿しました！"とメッセージを表示する。
-      flash[:notice] = "Photoを投稿しました！"
-      redirect_to photos_path
-    else
-      # @photo.saveがバリデーションに許されなかった（失敗した）時
-      # 入力フォームを再描画する。
-      render 'new'
-    end
+          # 一覧画面へ遷移して"写真を投稿しました！"とメッセージを表示する。
+          flash[:notice] = "Photoを投稿しました！"
+          redirect_to photos_path
+        else
+          # @photo.saveがバリデーションに許されなかった（失敗した）時
+          # 入力フォームを再描画する。
+          render 'new'
+        end
   end
 
   def confirm
