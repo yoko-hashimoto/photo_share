@@ -24,9 +24,6 @@ class PhotosController < ApplicationController
     # @photo.saveがバリデーションに許された（成功した）時
     if @photo.save
 
-      PostMailer.post_mail(@photo).deliver  ##追記
-      redirect_to letter_opener_web_path, notice: 'Contact was successfully created.' and return
-
       # 一覧画面へ遷移して"写真を投稿しました！"とメッセージを表示する。
       flash[:notice] = "Photoを投稿しました！"
       redirect_to photos_path
