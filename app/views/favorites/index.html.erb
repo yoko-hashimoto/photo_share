@@ -1,36 +1,43 @@
-<h1>Favorite List</h1>
+<div class="container">  
+  <h1>Favorite List</h1>
+  <div class="content">
+      <div class="row">
 
-<div class="content">
+        <% @favorite_photos.each do |favorite_photo| %>
+          <div class="col-md-6">
+            <div class="post">
+              <div class="photo">
+                <p><%= image_tag favorite_photo.image.url %></p>
+              </div>
+              <div class="favorite_content">
+                <p class="user_name">
+                  <%= favorite_photo.user.name %>
+                </p>
+                <p class = "photo_caption">
+                  <%= favorite_photo.caption %>
+                </p>
+                <p class="date">
+                  <%= favorite_photo.created_at.strftime("%Y-%m-%d %H:%M ") %>
+                </p>
 
-    <div class="row">
-   
-      <% @favorite_photos.each do |favorite_photo| %>
-        <div class="col-md-6">
-          <div class="post">
-            <div class="photo_image">
-              <p><%= image_tag favorite_photo.image.url %></p>
+
+                <p>
+                  <%= link_to ('お気に入り<i class="glyphicon glyphicon-heart fa-2x"></i>').html_safe, favorite_path(id: favorite_photo.favorite.id), method: :delete %>
+                </p>
+
+                
+        
+              </div>
+
             </div>
-            <div class = "photo_caption">
-              <%= favorite_photo.caption %>
-            </div>
-            <div class="user_name">
-              <%= favorite_photo.user.name %>
-            <div class="date">
-              <%= favorite_photo.created_at.strftime("%Y-%m-%d %H:%M ") %>
-            </div>
-            <div><%#= link_to "詳細", photo_path(photo.id) %></div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
+
+    <br>
+
+  <button type="button" class="btn btn-default"><%= link_to "Back to Profile", user_path(current_user.id) %></button>
+  
   </div>
-
-  <br>
-
-  <%# <div class="btn-group" role="group" aria-label="...">
-    <button type="button" class="btn btn-default"><%= link_to "<Profile>", user_path(current_user.id) %><!--</button>
-  </div> %> -->
-
 </div>
-
-<div><%= link_to "<Profile>", user_path(current_user.id) %></div>

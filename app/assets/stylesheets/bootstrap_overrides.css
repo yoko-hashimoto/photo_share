@@ -1,0 +1,25 @@
+.navbar-default {
+  background-color: #fff;
+  color: #262626;
+  border-bottom: 1px solid rgba(0,0,0,.0975);
+}
+
+.glyphicon-heart {
+  color: #F7819F;
+}
+
+.glyphicon-heart-empty {
+  color: #000000;
+}
+
+.glyphicon-edit {
+  color: #000000;
+}
+
+.glyphicon-trash {
+  color: #000000;
+}
+
+.btn {
+  margin: 20px;
+}

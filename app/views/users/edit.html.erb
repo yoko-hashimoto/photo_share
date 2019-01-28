@@ -1,52 +1,54 @@
-<div class="edit_profile">
+<div class="edit_container">
+  <div class="edit_profile">
 
-  <h1>Edit Profile</h1>
-  
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
+    <h1>Edit Profile</h1>
     
-      <h4><%= (@user.errors.count) %>件のエラーがあります。</h4>
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <%= form_with(model: @user, local: true) do |f| %>
-    <div>
-      <%= f.label :name %>
-      <br>
-      <%= f.text_field :name %>
-    </div>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+      
+        <h4><%= (@user.errors.count) %>件のエラーがあります。</h4>
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <%= form_with(model: @user, local: true) do |f| %>
+      <div>
+        <%= f.label :name %>
+        <br>
+        <%= f.text_field :name %>
+      </div>
 
-    <div>
-      <%= f.label :email %>
-      <br>
-      <%= f.email_field :email %>
-    <div>
+      <div>
+        <%= f.label :email %>
+        <br>
+        <%= f.email_field :email %>
+      <div>
 
-    <div>
-      <%= f.label :password %>
-      <br>
-      <%= f.password_field :password %>
-    </div>
+      <div>
+        <%= f.label :password %>
+        <br>
+        <%= f.password_field :password %>
+      </div>
 
-    <div>
-      <%= f.label :password_confirmation %>
-      <br>
-      <%= f.password_field :password_confirmation %>
-    </div>
+      <div>
+        <%= f.label :password_confirmation %>
+        <br>
+        <%= f.password_field :password_confirmation %>
+      </div>
 
-    <div>
-      <%= f.label :icon %>
-      <br>
-      <%= f.file_field :icon, class:"image_file" %>
-      <p><%= image_tag(@user.icon.url) if @user.icon.url %></p>
-    </div>
+      <div>
+        <%= f.label :icon %>
+        <br>
+        <%= f.file_field :icon, class:"image_file" %>
+        <p><%= image_tag(@user.icon.url) if @user.icon.url %></p>
+      </div>
 
-    <%= f.submit "Edit my account", class: "btn btn-default" %>
-  <% end %>
+      <%= f.submit "Edit my account", class: "btn btn-default" %>
+    <% end %>
 
+  </div>
 </div>

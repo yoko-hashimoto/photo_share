@@ -27,7 +27,7 @@ class PhotosController < ApplicationController
       PostMailer.post_mail(@photo).deliver
 
           # 一覧画面へ遷移して"写真を投稿しました！"とメッセージを表示する。
-          flash[:notice] = "Photoを投稿しました！"
+          flash[:info] = "Photoを投稿しました！"
           redirect_to photos_path
         else
           # @photo.saveがバリデーションに許されなかった（失敗した）時
@@ -57,17 +57,16 @@ class PhotosController < ApplicationController
 
   def update
     if @photo.update(photo_params)
-      flash[:notice] = "Photoを編集しました！"
+      flash[:info] = "Photoを編集しました！"
       redirect_to photos_path
     else
       render 'edit'
     end
-
   end
 
   def destroy
     @photo.destroy
-    flash[:notice] = "Photoを削除しました！"
+    flash[:info] = "Photoを削除しました！"
     redirect_to photos_path
   end
 
@@ -84,8 +83,8 @@ class PhotosController < ApplicationController
   def login_check
     # current_userが存在していなければ、強制的にログイン画面にリダイレクト
 		unless logged_in?
-			flash[:alert] = "ログインしてください"
-			redirect_to new_session_path
+			flash[:danger] = "ログインしてください"
+      redirect_to new_session_path
 		end
   end
 
@@ -93,7 +92,7 @@ class PhotosController < ApplicationController
     set_photo
       # photoを投稿したuserのidと今ログインしているuserのidが一致するか確認し、一致しなければ
       unless @photo.user_id == current_user.id
-        flash[:alert] = "アクセス権限がありません"
+        flash[:danger] = "アクセス権限がありません"
         # 編集画面を再描画する
         render 'edit'
       end

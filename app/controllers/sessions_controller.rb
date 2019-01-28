@@ -5,7 +5,9 @@ class SessionsController < ApplicationController
       # ログインに成功した場合
       # sessionメソッドを利用してログインを行う
       session[:user_id] = user.id
-      redirect_to user_path(user.id)
+      flash[:success] = 'ログインしました'
+      # redirect_to user_path(user.id)
+      redirect_to photos_path
     else
       # ログインに失敗した場合
       flash.now[:danger] = 'ログインに失敗しました'
@@ -16,7 +18,7 @@ class SessionsController < ApplicationController
   def destroy
     # ログアウトの処理
     session.delete(:user_id)
-    flash[:notice] = 'ログアウトしました'
+    flash[:info] = 'ログアウトしました'
     redirect_to new_session_path
   end
 

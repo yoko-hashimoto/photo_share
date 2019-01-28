@@ -1,36 +1,57 @@
 <div class="container">
-  <p><%#= notice %></p>
   <h1>Photo List</h1>
- 
   <div class="content">
-
-    <div class="row">
+      <div class="row">
    
-      <% @photos.each do |photo| %>
-        <div class="col-md-6">
-          <div class="post">
-            <div class="photo_image">
-              <p><%= image_tag photo.image.url %></p>
+        <% @photos.each do |photo| %>
+          <div class="col-md-6">
+            <!--<div class="post">
+              <div class="photo_image">
+                <p><%#= image_tag photo.image.url %></p>
+              </div>
+              <div class = "photo_caption">
+                <%= photo.caption %>
+              </div>
+              <div class="user_name">
+                <%#= photo.user.name %>
+              </div>
+              <div class="date">
+                <%#= photo.created_at.strftime("%Y-%m-%d %H:%M ") %>
+              </div>
+              <div><%#= link_to "詳細", photo_path(photo.id) %></div>
+            </div>-->
+
+            <div class="post">
+              <%= link_to photo do %>
+                <p class="photo">
+                  <%= image_tag photo.image.url %>
+                </p>
+                <div class="post_content"> 
+                  <p class="user_name">
+                    <%= photo.user.name %>
+                  </p>
+
+                  <p class="photo_caption">
+                    <%= photo.caption %>
+                  </p>
+                
+                  <p class="date">
+                    <%= photo.created_at.strftime("%Y-%m-%d %H:%M ") %>
+                  </p>
+                </div>
+
+              <% end %>
             </div>
-            <div class = "photo_caption">
-              <%= photo.caption %>
-            </div>
-            <div class="user_name">
-              <%= photo.user.name %>
-            <div class="date">
-              <%= photo.created_at.strftime("%Y-%m-%d %H:%M ") %>
-            </div>
-            <div><%= link_to "詳細", photo_path(photo.id) %></div>
+
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
   </div>
 
   <br>
 
   <div class="btn-group" role="group" aria-label="...">
-    <button type="button" class="btn btn-default"><%= link_to 'Create new', new_photo_path %></button>
+    <button type="button" class="btn btn-default"><%= link_to 'Top', photos_path %></button>
   </div>
 
 </div>

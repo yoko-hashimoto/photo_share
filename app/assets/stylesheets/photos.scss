@@ -1,3 +1,153 @@
 // Place all the styles related to the photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+  min-height: 100%;
+  position: relative;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #fafafa;
+  text-align: center;
+  height: 100%;
+}
+
+.navbar {
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  position: fixed;
+  /* デフォルトで設定されている角丸を無効にする*/
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+.header {
+  margin-bottom: 60px;
+}
+
+
+.container {
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  padding-top: -50px;
+  padding-bottom: 60px;
+}
+
+.details_wrapper {
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 60px;
+}
+
+.post {
+  margin-top: 30px;
+}
+
+li{
+  /* リスト先頭の黒丸を削除 */
+  list-style:none;
+}
+
+.image_file {
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.delete_button {
+  display: inline-block;
+  margin: 20px;
+}
+
+.edit_button {
+  display: inline-block;
+  margin: 20px;
+}
+
+.footer {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  background-color: #FFFFFF;
+  border-top: 1px solid rgba(0,0,0,.0975);
+  font-size: 1.5rem;
+  text-align: center;
+  display: table;
+}
+
+.footer p {
+  font-size: 1.2rem;
+  color: #777;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+// .button a {
+//   color: #151515;
+// }
+
+a {
+  color: #151515;
+}
+
+textarea {
+  resize: none;
+  margin: 20px;
+  width: 320px;
+  height: 115px;
+  padding: 8px;
+}
+
+// 画面サイズが767px以下の時は画像を横幅いっぱいに表示させる
+@media (max-width: 767px) {
+  .photo {
+      width: auto;
+  }
+  img {
+      max-width: 100%;
+      height: auto;
+  }
+}
+
+.post_content {
+  text-align: left;
+  padding: 20px 40px 40px 40px;
+  word-wrap: break-word;
+}
+
+.details_content {
+  width: 550px;
+  margin: 0 auto;
+  padding: 20px 40px 10px 40px;
+}
+
+.details_content p {
+  text-align: left;
+  // details_content内で折り返す
+  word-wrap: break-word;
+}
+
+@media (max-width: 767px) {
+  .details_content {
+      width: auto;
+  }
+  p {
+      max-width: 100%;
+      height: auto;
+  }
+}

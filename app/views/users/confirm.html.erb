@@ -1,28 +1,30 @@
-<h3>この内容で登録しますか？</h3>
+ <%# <div class="container"> %>
+  <h3>この内容で登録しますか？</h3>
 
-<%= form_with(model: @user, url: users_path, local: true) do |form| %>
-  <%= form.hidden_field :name %>
-  <%= form.hidden_field :email %>
-  <%= form.hidden_field :password %>
-  <%= form.hidden_field :password_confirmation %>
+  <%= form_with(model: @user, url: users_path, local: true) do |form| %>
+    <%= form.hidden_field :name %>
+    <%= form.hidden_field :email %>
+    <%= form.hidden_field :password %>
+    <%= form.hidden_field :password_confirmation %>
 
-  <!-- 確認画面でアップロードした画像を表示させるための記述 -->
-  <p><%= image_tag(@user.icon.url) %></p>
-  <%= form.hidden_field :icon_cache  %>
+    <!-- 確認画面でアップロードした画像を表示させるための記述 -->
+    <p><%= image_tag(@user.icon.url) %></p>
+    <%= form.hidden_field :icon_cache  %>
 
-  <p><%= @user.name %></p>
-  <p><%= @user.email %></p>
-  <p><%= @user.password %></p>
-  <p><%= @user.caption %></p>
+    <p><%= @user.name %></p>
+    <p><%= @user.email %></p>
+    <p><%= @user.password %></p>
+    <p><%= @user.caption %></p>
 
-  <%= form.submit  "Post" %>
-<% end %>
+    <%= form.submit  "Post" %>
+  <% end %>
 
-<%= form_with(model: @user, url: new_user_path, local: true, method: 'get') do |form| %>
-  <%= form.hidden_field :name %>
-  <%= form.hidden_field :email %>
-  <%= form.hidden_field :password %>
-  <%= form.hidden_field :password_confirmation %>
-  <%= form.hidden_field :icon_cache %>
-  <%= form.submit "Back", name: 'back'%>
-<% end %>
+  <%= form_with(model: @user, url: new_user_path, local: true, method: 'get') do |form| %>
+    <%= form.hidden_field :name %>
+    <%= form.hidden_field :email %>
+    <%= form.hidden_field :password %>
+    <%= form.hidden_field :password_confirmation %>
+    <%= form.hidden_field :icon_cache %>
+    <%= form.submit "Back", name: 'back'%>
+  <% end %>
+<%# </div> %>

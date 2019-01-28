@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PhotoShare</title>
+    <title>Photo Share</title>
     <%= csrf_meta_tags %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
+    <header class="header">
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
-              <%# <span class="sr-only">Bootstrap</span> %>
+              <span class="sr-only">Bootstrap</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/photos/">Photo Share</a>
+            <a class="navbar-brand" href="/photos/"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+            <span>Photo Share</span></a>
+            <%# <a class="navbar-brand" href="/photos/">Photo Share</a> %>
           </div>
           <div id="gnavi" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -42,20 +46,19 @@
       </nav>
     </header>
 
-
-
-
-
-
-
-
-
-    
-    
       <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "#{key}") %>
+        <%#= content_tag(:div, value, class: "#{key}") %>
+        <div class="alert alert-<%= key %>">
+          <a class="close" data-dismiss="alert">×</a>
+          <%= value %>
+        </div>
       <% end %>
 
     <%= yield %>
+
+    <footer class="footer">
+      <p>Copyright © ️︎20119 Yoko Hashimoto</p>
+    </footer>
+    
   </body>
 </html>

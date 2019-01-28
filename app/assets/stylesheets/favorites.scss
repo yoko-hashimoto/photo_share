@@ -1,3 +1,25 @@
 // Place all the styles related to the favorites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.favorite_content {
+  width: 550px;
+  margin: 0 auto;
+  padding: 20px 40px 10px 40px;
+}
+
+.favorite_content p {
+  text-align: left;
+  // details_content内で折り返す
+  word-wrap: break-word;
+}
+
+@media (max-width: 767px) {
+  .favorite_content {
+      width: auto;
+  }
+  p {
+      max-width: 100%;
+      height: auto;
+  }
+}

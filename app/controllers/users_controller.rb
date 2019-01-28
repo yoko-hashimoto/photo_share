@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       # サインアップと同時にログイン状態にする
       session[:user_id] = @user.id
+      flash[:success] = "アカウント登録が完了しました！"
       redirect_to user_path(@user.id)
     else
       render 'new'
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
   def update
     set_user
     if @user.update(user_params)
-      flash[:notice] = "Profileを編集しました！"
+      flash[:info] = "Profileを編集しました！"
       redirect_to user_path(current_user.id)
 
     else
@@ -64,7 +65,7 @@ class UsersController < ApplicationController
   def user_check
     set_user
       unless @user.id == current_user.id
-        flash[:alert] = "アクセス権限がありません。"
+        flash[:danger] = "アクセス権限がありません。"
         redirect_to photos_path
       end
   end
