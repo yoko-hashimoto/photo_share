@@ -17,37 +17,32 @@
     
     <%= form_with(model: @user, local: true) do |f| %>
       <div>
-        <%= f.label :name %>
-        <br>
-        <%= f.text_field :name %>
+        <p><%= f.label :name %></p>
+        <p><%= f.text_field :name %></p>
       </div>
-
       <div>
-        <%= f.label :email %>
-        <br>
-        <%= f.email_field :email %>
+        <p><%= f.label :email %></p>
+        <p><%= f.email_field :email %></p>
       <div>
-
       <div>
-        <%= f.label :password %>
-        <br>
-        <%= f.password_field :password %>
+        <p><%= f.label :password %></p>
+        <p><%= f.password_field :password %></p>
       </div>
-
       <div>
-        <%= f.label :password_confirmation %>
-        <br>
-        <%= f.password_field :password_confirmation %>
+        <p><%= f.label :password_confirmation %></p>
+        <p><%= f.password_field :password_confirmation %></p>
       </div>
-
+      <br>
       <div>
+        <p>
         <%= f.label :icon %>
-        <br>
         <%= f.file_field :icon, class:"image_file" %>
-        <%= image_tag(@user.icon.url) if @user.icon.url %></p>
+        </p>
+        <p><%= image_tag(@user.icon.url) if @user.icon.url %></p>
       </div>
-
-      <%= f.submit "Create my account", class: "btn btn-default"  %>
+      <div>
+      <%= f.submit "Create my account", class: "btn btn-default" %>
+      </div>
     <% end %>
   </div>
 <%# </div> %>
