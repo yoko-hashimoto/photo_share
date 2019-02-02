@@ -14,4 +14,8 @@ class Photo < ApplicationRecord
 
   # Photoモデルのimageカラムに、ImageUploaderを紐付ける。
   mount_uploader :image, ImageUploader
+
+  def favorite_with(user)
+    favorites.find_by(user_id: user.id)
+  end
 end

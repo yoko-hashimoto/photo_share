@@ -21,6 +21,7 @@ class FavoritesController < ApplicationController
   def index
     # 今ログインしているユーザーの、お気に入り登録しているphotoを取得し、降順に並べ替える
     @favorite_photos = current_user.favorite_photos.order(updated_at: "DESC")
+    # binding.pry
   end
 
 end

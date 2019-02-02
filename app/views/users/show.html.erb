@@ -6,12 +6,18 @@
       <p>メールアドレス: <%= @user.email %></p>
 
       <div>
-        <span><%= link_to ('<i class="glyphicon glyphicon-heart fa-2x"></i>').html_safe, favorites_path %> </span>
-        <span>My favrite</span>
+        <span><%= link_to favorites_path do %> </span>
+          <i class="fas fa-heart fa-lg heart"></i>
+          <span>My favrite</span>
+        <% end %>
         <br>
           <% if @user.id == current_user.id %>
-            <span><%= link_to ('<i class="glyphicon glyphicon-user fa-2x"></i>').html_safe, edit_user_path(current_user.id) %></span>
-            <span>Edit Profile</span>
+            <span><%= link_to edit_user_path(current_user.id) do %></span>
+              <!--<i class="fas fa-user-edit fa-lg"></i>-->
+              <i class="fas fa-user fa-lg"></i>
+              <!--<i class="far fa-user fa-lg"></i>-->
+              <span>Edit Profile</span>
+            <% end%>
           <% end %>
       </div>
     </div>

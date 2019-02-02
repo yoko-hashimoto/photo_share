@@ -30,10 +30,10 @@ body {
   margin-bottom: 60px;
 }
 
-
 .container {
   margin: 0 auto;
   height: 100%;
+  width: 100%;
   position: relative;
   text-align: center;
   padding-top: -50px;
@@ -41,12 +41,12 @@ body {
 }
 
 .details_wrapper {
-  margin: 0 auto;
-  height: 100%;
-  position: relative;
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 60px;
+  // margin: 0 auto;
+  // height: 100%;
+  // position: relative;
+  // text-align: center;
+  // padding-top: 10px;
+  // padding-bottom: 60px;
 }
 
 .post {
@@ -65,16 +65,17 @@ li{
 
 .buttons {
   text-align: right;
+  width: 100%;
 }
 
 .delete_button {
   display: inline-block;
-  margin: 20px;
+  margin: 15px;
 }
 
 .edit_button {
   display: inline-block;
-  margin: 20px;
+  margin: 15px;
 }
 
 .footer {
@@ -128,6 +129,8 @@ textarea {
   text-align: left;
   padding: 20px 40px 40px 40px;
   word-wrap: break-word;
+  width: 550px;
+  margin: 0 auto;
 }
 
 .details_content {
@@ -150,4 +153,12 @@ textarea {
       max-width: 100%;
       height: auto;
   }
+}
+
+.camera {
+  color: #151515;
+}
+
+.heart {
+  color: #F7819F;
 }

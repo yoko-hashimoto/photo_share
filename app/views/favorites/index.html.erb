@@ -19,16 +19,14 @@
                 <p class="date">
                   <%= favorite_photo.created_at.strftime("%Y-%m-%d %H:%M ") %>
                 </p>
+                <p>
+                  
+                  <%= link_to favorite_photo.favorite_with(current_user), method: :delete do %>
+                    <span>お気に入り</span><i class="fas fa-heart fa-lg heart"></i>
+                  <% end%>
+                </p>
 
-
-                <%# <p>
-                  <%= link_to ('お気に入り<i class="glyphicon glyphicon-heart fa-2x"></i>').html_safe, favorite_path(id: favorite_photo.favorite.id), method: :delete %>
-                <!--</p> %>-->
-
-                
-        
               </div>
-
             </div>
           </div>
         <% end %>
