@@ -1,4 +1,5 @@
-<div class="edit_container">
+<!--<div class="edit_container">-->
+<div class ="container">
   <div class="edit_profile">
 
     <h1>Edit Profile</h1>
@@ -17,38 +18,38 @@
     
     <%= form_with(model: @user, local: true) do |f| %>
       <div>
-        <%= f.label :name %>
-        <br>
-        <%= f.text_field :name %>
+        <p><%= f.label :name %></p>
+        <p><%= f.text_field :name %></p>
       </div>
 
       <div>
-        <%= f.label :email %>
-        <br>
-        <%= f.email_field :email %>
+        <p><%= f.label :email %></p>
+        <p><%= f.email_field :email %></p>
       <div>
 
       <div>
-        <%= f.label :password %>
-        <br>
-        <%= f.password_field :password %>
+        <p><%= f.label :password %></p>
+        <p><%= f.password_field :password %></p>
       </div>
 
       <div>
-        <%= f.label :password_confirmation %>
-        <br>
-        <%= f.password_field :password_confirmation %>
+        <p><%= f.label :password_confirmation %></p>
+        <p><%= f.password_field :password_confirmation %></p>
       </div>
-
+      <br>
       <div>
-        <%= f.label :icon %>
-        <br>
-        <%= f.file_field :icon, class:"image_file" %>
+        <p>
+          <%= f.label :icon %>
+          <%= f.file_field :icon, class:"image_file" %>
+        </p>
         <p><%= image_tag(@user.icon.url) if @user.icon.url %></p>
       </div>
 
-      <%= f.submit "Edit my account", class: "btn btn-default" %>
+      <div>
+        <%= f.submit "Edit my account", class: "btn btn-default" %>
+      </div>
     <% end %>
 
   </div>
 </div>
+<!--</div>-->

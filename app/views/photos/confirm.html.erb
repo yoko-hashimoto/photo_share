@@ -8,12 +8,12 @@
     <p><%= image_tag(@photo.image.url) %></p>
     <%= form.hidden_field :image_cache  %>
     <p><%= @photo.caption %></p>
-    <%= form.submit  "Post" %>
+    <%= form.submit  "Post", class: "btn btn-default" %>
   <% end %>
 
   <%= form_with(model: @photo, url: new_photo_path, local: true, method: 'get') do |form| %>
     <%= form.hidden_field :image_cache %>
     <%= form.hidden_field :caption %>
-    <%= form.submit "Back", name: 'back'%>
+    <%= form.submit "Back", name: 'back', class: "btn btn-default"%>
   <% end %>
 </div>

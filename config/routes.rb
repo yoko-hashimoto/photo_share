@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  # root to: 'users#new'
   root to: 'photos#index'
   
   resources :users, only: [:new, :create, :show, :edit, :update]
