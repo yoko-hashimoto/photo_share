@@ -8,12 +8,14 @@
 
 .user_information {
   margin: 30px;
-
   width: 550px;
   margin: 0 auto;
   padding: 20px 40px 10px 40px;
   // text-align: left;
+}
 
+.user_information p {
+  margin-bottom: 20px;
 }
 
 @media (max-width: 767px) {
@@ -24,4 +26,16 @@
       max-width: 100%;
       height: auto;
   }
+}
+
+.sign_up h1 {
+  margin-bottom: 30px;
+}
+
+.form div {
+  margin-bottom: 20px;
+}
+
+.description {
+  margin-bottom: 0px;
 }

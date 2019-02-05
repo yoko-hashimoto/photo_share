@@ -24,6 +24,7 @@ body {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
+  font-size: 120%;
 }
 
 .header {
@@ -125,28 +126,28 @@ textarea {
   }
 }
 
-.post_content {
-  text-align: left;
-  padding: 20px 40px 40px 40px;
-  word-wrap: break-word;
-  width: 550px;
-  margin: 0 auto;
-}
+// .post_content {
+//   text-align: left;
+//   padding: 20px 40px 40px 40px;
+//   word-wrap: break-word;
+//   width: 550px;
+//   margin: 0 auto;
+// }
 
-.details_content {
+.content {
   width: 550px;
   margin: 0 auto;
   padding: 20px 40px 10px 40px;
 }
 
-.details_content p {
+.content p {
   text-align: left;
   // details_content内で折り返す
   word-wrap: break-word;
 }
 
 @media (max-width: 767px) {
-  .details_content {
+  .content {
       width: auto;
   }
   p {
@@ -161,4 +162,12 @@ textarea {
 
 .heart {
   color: #F7819F;
+}
+
+.user_name {
+  font-size: 150%;
+}
+
+.photo_caption {
+  font-size: 120%;
 }

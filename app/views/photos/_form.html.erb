@@ -12,7 +12,6 @@
     <% end %>
 
     <div class="post">
-      <p><%#= form.label :image %></p>
       <!-- 確認画面から新規作成画面に戻った時に、 -->
       <!-- アップロードした画像を表示させるための記述 -->
       <p><%= image_tag(@photo.image.url) if @photo.image.url %></p>
@@ -24,19 +23,5 @@
     <div>
       <%= form.submit "Post", class: "btn btn-default" %>
     </div>
-
-     <%# <form class="form-horizontal">
-        <div class="form-group"> %>
-            <%# <label class="control-label col-xs-2">name</label> %>
-              <%# <div class="col-xs-offset-3 col-xs-6">
-                <input type="textarea" name="caption" class="form-control">
-            </div>
-        </div>
-        <div class="form-group" >
-          <div class="col-xs-offset-1 col-xs-10">
-            <button type="submit" class="btn btn-default">Post</button>
-        </div>
-        </div>
-    </form> %>
  
   <% end %>

@@ -1,32 +1,17 @@
 <div class="container">
   <h1>Photo List</h1>
-  <div class="content">
+  <div>
       <div class="row">
    
         <% @photos.each do |photo| %>
           <div class="col-md-6">
-            <!--<div class="post">
-              <div class="photo_image">
-                <p><%#= image_tag photo.image.url %></p>
-              </div>
-              <div class = "photo_caption">
-                <%= photo.caption %>
-              </div>
-              <div class="user_name">
-                <%#= photo.user.name %>
-              </div>
-              <div class="date">
-                <%#= photo.created_at.strftime("%Y-%m-%d %H:%M ") %>
-              </div>
-              <div><%#= link_to "詳細", photo_path(photo.id) %></div>
-            </div>-->
 
             <div class="post">
               <%= link_to photo do %>
                 <p class="photo">
                   <%= image_tag photo.image.url %>
                 </p>
-                <div class="post_content"> 
+                <div class="content"> 
                   <p class="user_name">
                     <%= photo.user.name %>
                   </p>

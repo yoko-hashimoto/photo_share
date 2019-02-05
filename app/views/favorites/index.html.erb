@@ -1,6 +1,6 @@
 <div class="container">  
-  <h1>Favorite List</h1>
-  <div class="content">
+  <h1>My Favorites</h1>
+  <div>
       <div class="row">
 
         <% @favorite_photos.each do |favorite_photo| %>
@@ -20,9 +20,8 @@
                   <%= favorite_photo.created_at.strftime("%Y-%m-%d %H:%M ") %>
                 </p>
                 <p>
-                  
                   <%= link_to favorite_photo.favorite_with(current_user), method: :delete do %>
-                    <span>お気に入り</span><i class="fas fa-heart fa-lg heart"></i>
+                    <i class="fas fa-heart fa-lg heart"></i>
                   <% end%>
                 </p>
 

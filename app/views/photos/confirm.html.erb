@@ -1,19 +1,25 @@
 <div class="container">
-  <h1>この内容で投稿しますか？</h1>
+  <h1>Confirm</h1>
+  <h4>この内容で投稿しますか？</h4>
 
-  <%= form_with(model: @photo, url: photos_path, local: true) do |form| %>
-    <%= form.hidden_field :caption %>
+  <div class = "confirm">
+    <%= form_with(model: @photo, url: photos_path, local: true) do |form| %>
+      <p><%= form.hidden_field :caption %></p>
+      <!-- 確認画面でアップロードした画像を表示させるための記述 -->
+      <p class="photo"><%= image_tag(@photo.image.url) %></p>
 
-    <!-- 確認画面でアップロードした画像を表示させるための記述 -->
-    <p><%= image_tag(@photo.image.url) %></p>
-    <%= form.hidden_field :image_cache  %>
-    <p><%= @photo.caption %></p>
-    <%= form.submit  "Post", class: "btn btn-default" %>
-  <% end %>
+      <div class="content">
+        <p><%= form.hidden_field :image_cache  %></p>
+        <p class="photo_caption"><%= @photo.caption %></p>
+        <%= form.submit  "Post", class: "btn btn-default" %>
+      </div>
+    <% end %>
 
-  <%= form_with(model: @photo, url: new_photo_path, local: true, method: 'get') do |form| %>
-    <%= form.hidden_field :image_cache %>
-    <%= form.hidden_field :caption %>
-    <%= form.submit "Back", name: 'back', class: "btn btn-default"%>
-  <% end %>
+        <%= form_with(model: @photo, url: new_photo_path, local: true, method: 'get') do |form| %>
+          <p><%= form.hidden_field :image_cache %></p>
+          <p><%= form.hidden_field :caption %></p>
+          <%= form.submit "Back", name: 'back', class: "btn btn-default"%>
+        <% end %>
+    
+  </div>  
 </div>
