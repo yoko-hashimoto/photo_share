@@ -66,6 +66,7 @@ class UsersController < ApplicationController
     set_user
       unless @user.id == current_user.id
         flash[:danger] = "アクセス権限がありません。"
+        # photoの一覧画面にリダイレクトさせる
         redirect_to photos_path
       end
   end

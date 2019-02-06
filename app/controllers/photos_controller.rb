@@ -93,8 +93,8 @@ class PhotosController < ApplicationController
       # photoを投稿したuserのidと今ログインしているuserのidが一致するか確認し、一致しなければ
       unless @photo.user_id == current_user.id
         flash[:danger] = "アクセス権限がありません"
-        # 編集画面を再描画する
-        render 'edit'
+        # photoの一覧画面にリダイレクトさせる
+        redirect_to photos_path
       end
   end
 end
