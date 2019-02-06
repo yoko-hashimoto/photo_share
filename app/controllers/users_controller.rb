@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :user_check, only: [:edit, :destroy]
+  before_action :set_user, only: [:show, :edit, :update]
 
   def new
     if params[:back]
@@ -22,15 +23,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    set_user
   end
 
   def edit
-    set_user
   end
 
   def update
-    set_user
     if @user.update(user_params)
       flash[:info] = "Profileを編集しました！"
       redirect_to user_path(current_user.id)

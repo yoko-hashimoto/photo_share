@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
   # onlyオプションを使用することで、指定されたアクションが実行された場合のみbefore_actionメソッドを実行する。
   before_action :login_check, only: [:new, :edit, :show, :destroy]
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-  before_action :user_check, only: [:create, :edit, :destroy]
+  before_action :user_check, only: [:edit, :destroy]
 
   def index
     @photos = Photo.all.order(updated_at: "DESC")
@@ -46,7 +46,6 @@ class PhotosController < ApplicationController
     end
 
   def show
-    set_photo
     # 今ログインしているユーザーがお気に入り登録している全レコード(user_id と photo_id)を抽出し、
     # そのphotoのidが存在しているか確認
     @favorite = current_user.favorites.find_by(photo_id: @photo.id)

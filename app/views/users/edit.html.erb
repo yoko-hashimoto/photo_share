@@ -18,15 +18,15 @@
     <div class ="form">
       <%= form_with(model: @user, local: true) do |f| %>
         <div>
-          <p class ="description"><%= f.label :name %></p>
+          <p class ="description"><%= f.label :name, "Name" %></p>
           <p><%= f.text_field :name %></p>
         </div>
         <div>
-          <p class ="description"><%= f.label :email %></p>
+          <p class ="description"><%= f.label :email, "Email" %></p>
           <p><%= f.email_field :email %></p>
         </div>
         <div>
-          <p class ="description"><%= f.label :password %></p>
+          <p class ="description"><%= f.label :password, "Password" %></p>
           <p><%= f.password_field :password %></p>
         </div>
 
