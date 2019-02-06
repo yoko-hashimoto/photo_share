@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
   # onlyオプションを使用することで、指定されたアクションが実行された場合のみbefore_actionメソッドを実行する。
   before_action :login_check, only: [:new, :edit, :show, :destroy]
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-  before_action :user_check, only: [:new, :edit, :destroy]
+  before_action :user_check, only: [:create, :edit, :destroy]
 
   def index
     @photos = Photo.all.order(updated_at: "DESC")
