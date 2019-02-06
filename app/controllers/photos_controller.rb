@@ -97,5 +97,4 @@ class PhotosController < ApplicationController
         render 'edit'
       end
   end
-
 end
